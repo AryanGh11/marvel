@@ -15,7 +15,6 @@ export default function Hydrate({ children }: { children: ReactNode }) {
   setTimeout(() => {
     setLoader(false);
   }, 1500);
-  console.log(loader);
   //wait untill Nextjs rehydration completes
   useEffect(() => {
     setIsHydrated(true);
