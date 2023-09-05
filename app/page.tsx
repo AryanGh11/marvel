@@ -1,7 +1,6 @@
 "use client";
 
 import { useUserSession } from "@/store";
-import { Style } from "@/util/style";
 import { useRouter } from "next/navigation";
 
 export default function Home() {
@@ -11,7 +10,7 @@ export default function Home() {
   if (!userSession.isLogin) router.push("/welcome");
 
   return (
-    <main className={Style.main}>
+    <main className="w-full bg-base-100 text-neutral">
       <h1>hello</h1>
     </main>
   );

@@ -1,7 +1,6 @@
 "use client";
 
 import { BackgroundsType } from "@/types/BackgroundsType";
-import { Style } from "@/util/style";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -47,10 +46,10 @@ export default function BackgroundChanger({ data }: any) {
   });
 
   return (
-    <div className={Style.main}>
+    <div className="w-full bg-base-100 text-neutral">
       {backgrounds[0] && (
         <Image
-          className="w-full h-screen object-cover"
+          className="w-full h-screen object-cover backdrop-filter blur-[1px]"
           src={backgrounds[currentBackgroundIndex]}
           width={720}
           height={720}
