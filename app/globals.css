@@ -10,6 +10,10 @@
   border: none;
 }
 
+html {
+  user-select: none;
+}
+
 .btn-primary {
   @apply h-14 font-bold
 }

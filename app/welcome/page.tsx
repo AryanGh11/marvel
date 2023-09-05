@@ -26,7 +26,7 @@ export default function Welcome() {
 
   //Fetch backgrounds from server
   const [data, setData] = useState([]);
-  const path = "/movies";
+  const path = "/get-backgrounds";
 
   //Check if data existing in storage
   const backgroundImages = useBackgroundImages();
@@ -38,7 +38,7 @@ export default function Welcome() {
 
   //Check if data not existing in storage
   if (backgroundImages.data == null) {
-    fetchData(path, setData);
+    fetchData(path, setData, {});
     console.log(data);
   }
 
