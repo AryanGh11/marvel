@@ -5,9 +5,9 @@ import { motion } from "framer-motion";
 export default function FirstSection() {
   return (
     <motion.div
-      initial={{ x: -200 }}
+      initial={{ x: -100 }}
       animate={{ x: 0 }}
-      transition={{ duration: 3, ease: "easeInOut" }}
+      transition={{ duration: 2.5, ease: "easeInOut" }}
       className="z-20 text-center leading-8 font-bold text-2xl"
     >
       <h1>

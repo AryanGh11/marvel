@@ -11,7 +11,7 @@ export default function Input({
 }: InputType) {
   return (
     <input
-      className="w-full h-12 px-4 bg-base-200 rounded-xl"
+      className="input input-bordered w-full h-12 px-4 bg-base-200 rounded-xl"
       type={type}
       value={value}
       id={id}

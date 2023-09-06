@@ -86,15 +86,35 @@ export const useThemeStore = create<ThemeState>()(
 );
 
 type UserSession = {
+  id: string | null;
+  name: string | null;
+  email: string | null;
+  password: string | null;
+  image: string | null;
   isLogin: boolean;
-  toggleLogin: () => void;
+  setId: (val: string) => void;
+  setName: (val: string) => void;
+  setEmail: (val: string) => void;
+  setImage: (val: string) => void;
+  setPassword: (val: string) => void;
+  toggleLogin: (val: string) => void;
 };
 
 export const useUserSession = create<UserSession>()(
   persist(
     (set) => ({
+      id: null,
+      name: null,
+      email: null,
+      image: null,
+      password: null,
       isLogin: false,
-      toggleLogin: () => set((state) => ({ isLogin: !state.isLogin })),
+      setId: (val) => set((state) => ({ id: val })),
+      setName: (val) => set((state) => ({ name: val })),
+      setEmail: (val) => set((state) => ({ email: val })),
+      setImage: (val) => set((state) => ({ image: val })),
+      setPassword: (val) => set((state) => ({ password: val })),
+      toggleLogin: (val) => set((state) => ({ isLogin: !state.isLogin })),
     }),
     { name: "user-session" }
   )
@@ -112,5 +132,22 @@ export const useBackgroundImages = create<BackgroundImages>()(
       setData: (val) => set((state) => ({ data: val })),
     }),
     { name: "background-images" }
+  )
+);
+
+type ErrorType = {
+  message: string | null;
+  setMessage: (val: string) => void;
+  clear: () => void;
+};
+
+export const handleError = create<ErrorType>()(
+  persist(
+    (set) => ({
+      message: null,
+      setMessage: (val) => set((state) => ({ message: val })),
+      clear: () => set((state) => ({ message: null })),
+    }),
+    { name: "handle-error" }
   )
 );

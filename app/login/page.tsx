@@ -19,7 +19,7 @@ export default function Login() {
         password={password}
         setPassword={setPassword}
       />
-      <LoginButtons />
+      <LoginButtons email={email} password={password} />
     </main>
   );
 }
