@@ -97,7 +97,8 @@ type UserSession = {
   setEmail: (val: string) => void;
   setImage: (val: string) => void;
   setPassword: (val: string) => void;
-  toggleLogin: (val: string) => void;
+  toggleLogin: () => void;
+  clear: () => void;
 };
 
 export const useUserSession = create<UserSession>()(
@@ -114,7 +115,16 @@ export const useUserSession = create<UserSession>()(
       setEmail: (val) => set((state) => ({ email: val })),
       setImage: (val) => set((state) => ({ image: val })),
       setPassword: (val) => set((state) => ({ password: val })),
-      toggleLogin: (val) => set((state) => ({ isLogin: !state.isLogin })),
+      toggleLogin: () => set((state) => ({ isLogin: !state.isLogin })),
+      clear: () =>
+        set((state) => ({
+          name: null,
+          email: null,
+          id: null,
+          image: null,
+          password: null,
+          isLogin: false,
+        })),
     }),
     { name: "user-session" }
   )
@@ -149,5 +159,22 @@ export const handleError = create<ErrorType>()(
       clear: () => set((state) => ({ message: null })),
     }),
     { name: "handle-error" }
+  )
+);
+
+type MessageType = {
+  message: string | null;
+  setMessage: (val: string) => void;
+  clear: () => void;
+};
+
+export const handleMessage = create<MessageType>()(
+  persist(
+    (set) => ({
+      message: null,
+      setMessage: (val) => set((state) => ({ message: val })),
+      clear: () => set((state) => ({ message: null })),
+    }),
+    { name: "handle-message" }
   )
 );

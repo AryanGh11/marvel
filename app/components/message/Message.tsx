@@ -1,26 +1,26 @@
 "use client";
 
-import { handleError } from "@/store";
+import { handleMessage } from "@/store";
 import { AnimatePresence, motion } from "framer-motion";
 
-export default function Error() {
-  //Check for errors
-  const error = handleError();
+export default function Message() {
+  //Check for message
+  const message = handleMessage();
 
   //Hide after 5s
   setTimeout(() => {
-    error.clear();
+    message.clear();
   }, 5000);
 
   return (
     <div className="absolute w-full flex px-6 top-6">
       <AnimatePresence>
-        {error.message != null && (
+        {message.message != null && (
           <motion.div
             initial={{ y: -100 }}
             animate={{ y: 0 }}
             exit={{ y: -100 }}
-            className="alert alert-error p-3 flex justify-between items-center pr-6 text-sm"
+            className="alert alert-success p-3 flex justify-between items-center pr-6 text-sm"
           >
             <div className="flex gap-2 items-center">
               <svg
@@ -33,10 +33,10 @@ export default function Error() {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="2"
-                  d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
-              <span>{error.message}</span>
+              <span>{message.message}</span>
             </div>
           </motion.div>
         )}

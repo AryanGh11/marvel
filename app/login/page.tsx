@@ -1,11 +1,17 @@
 "use client";
 
+import { useUserSession } from "@/store";
 import LoginButtons from "../components/login/LoginButtons";
 import LoginHeader from "../components/login/LoginHeader";
 import LoginInputs from "../components/login/LoginInputs";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Login() {
+  //Make sure user is logged out
+  const userSession = useUserSession();
+  useEffect(() => {
+    userSession.clear();
+  }, []);
   //Inputs value
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

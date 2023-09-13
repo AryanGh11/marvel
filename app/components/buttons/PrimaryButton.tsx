@@ -3,18 +3,12 @@
 import { ButtonType } from "@/types/ButtonType";
 import { useState } from "react";
 
-export default function PrimaryButton({
-  text,
-  disabled,
-  onClick,
-  timer,
-}: ButtonType) {
+export default function PrimaryButton({ text, disabled, timer }: ButtonType) {
   //Loading state
   const [loading, setLoading] = useState(false);
 
   //onClick function
   const handleOnClick = () => {
-    onClick;
     setLoading(true);
   };
 

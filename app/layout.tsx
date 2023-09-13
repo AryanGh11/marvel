@@ -5,6 +5,7 @@ import LoadingPage from "./components/LoadingPage";
 import Error from "@/app/components/error/Error";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
+import Message from "./components/message/Message";
 
 export const metadata: Metadata = {
   title: "Marvel App",
@@ -23,6 +24,7 @@ export default async function RootLayout({
         <LoadingPage timer={2} />
         {children}
         <Error />
+        <Message />
       </Hydrate>
     </html>
   );

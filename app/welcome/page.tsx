@@ -76,17 +76,3 @@ export default function Welcome() {
     </main>
   );
 }
-
-{
-  /* <div className="fixed top-0 left-0 z-[2] w-full h-screen px-6 flex flex-col justify-between items-center py-10">
-        <div className="pt-16">
-          <Logo />
-        </div>
-        <div className="flex flex-col gap-12 w-full">
-          <p className="font-light leading-12 px-3">
-            Welcome to MARVEL univerce! <br></br> Please signup or login first
-            to access
-          </p>
-        </div>
-      </div> */
-}

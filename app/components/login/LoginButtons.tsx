@@ -5,8 +5,9 @@ import fetchData from "@/util/fetchData";
 import PrimaryButton from "../buttons/PrimaryButton";
 import SecondaryButton from "../buttons/SecondaryButton";
 import { UserType } from "@/types/UserType";
-import { handleError } from "@/store";
+import { handleError, handleMessage, useUserSession } from "@/store";
 import { signIn, signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 interface ThisType {
   email: string;
@@ -14,16 +15,15 @@ interface ThisType {
 }
 
 export default function LoginButtons({ email, password }: ThisType) {
-  //Import errors
+  //Import errors & message
   const error = handleError();
+  const message = handleMessage();
 
-  //Check if user existing in database
-  const options = {
-    body: {
-      email: "mahdi.gholami875@gmail.com",
-      password: "aryangh11",
-    },
-  };
+  //import useRouter
+  const router = useRouter();
+
+  //user session in storage
+  const userSession = useUserSession();
 
   //Get all users from database
   const [users, setUsers] = useState([]);
@@ -31,13 +31,29 @@ export default function LoginButtons({ email, password }: ThisType) {
 
   //Check if user existing in database
   const handleLogin = () => {
-    const currentUser = users.filter(
+    const currentUser: UserType[] = users.filter(
       (user: UserType) => user.email === email && user.password === password
     );
 
     //Set errors
     if (currentUser.length === 0) {
       error.setMessage("Email or password isn't correct");
+    } else {
+      //Set current user to storage
+      userSession.setEmail(currentUser[0].email);
+      userSession.setId(currentUser[0].id);
+      userSession.setName(currentUser[0].name);
+      userSession.setImage(currentUser[0].image);
+      userSession.setPassword(currentUser[0].password);
+      userSession.toggleLogin();
+      //Go to homepage after 2s
+      setTimeout(() => {
+        router.push("/");
+      }, 2000);
+      //Create success message
+      message.setMessage(
+        `Welcome Back ${userSession.name != null ? userSession.name : ""}`
+      );
     }
   };
 
@@ -47,7 +63,7 @@ export default function LoginButtons({ email, password }: ThisType) {
         <PrimaryButton
           text="Log in"
           disabled={error.message != null && true}
-          timer={1}
+          timer={2}
         />
       </div>
       <h1 className="text-sm">Or log in with</h1>
