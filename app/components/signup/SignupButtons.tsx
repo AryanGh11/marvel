@@ -1,15 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import fetchData from "@/api/fetchData";
+import fetchData from "@/pages/api/fetchData";
 import PrimaryButton from "../buttons/PrimaryButton";
 import SecondaryButton from "../buttons/SecondaryButton";
 import { UserType } from "@/types/UserType";
 import { handleError, handleMessage, useUserSession } from "@/store";
 import { signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import postData from "@/api/postData";
-import sendEmail from "@/api/sendEmail";
+import postData from "@/pages/api/postData";
+import sendEmail from "@/pages/api/sendEmail";
 import createOneTimeCode from "@/util/createOneTimeCode";
 
 interface ThisType {

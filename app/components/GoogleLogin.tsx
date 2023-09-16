@@ -2,7 +2,7 @@
 
 import { useUserSession } from "@/store";
 import { UserType } from "@/types/UserType";
-import fetchData from "@/api/fetchData";
+import fetchData from "@/pages/api/fetchData";
 import { Session } from "next-auth";
 import { useEffect, useState } from "react";
 

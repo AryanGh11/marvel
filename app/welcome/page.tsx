@@ -4,7 +4,7 @@ import { useUserSession } from "@/store";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import BackgroundChanger from "../components/BackgroundChanger";
-import fetchData from "@/api/fetchData";
+import fetchData from "@/pages/api/fetchData";
 import Logo from "../components/Logo";
 import PrimaryButton from "../components/buttons/PrimaryButton";
 import FirstSection from "../components/welcome/FirstSection";

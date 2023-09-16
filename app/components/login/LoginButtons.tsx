@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import fetchData from "@/api/fetchData";
+import fetchData from "@/pages/api/fetchData";
 import PrimaryButton from "../buttons/PrimaryButton";
 import SecondaryButton from "../buttons/SecondaryButton";
 import { UserType } from "@/types/UserType";
