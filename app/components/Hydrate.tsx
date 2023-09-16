@@ -10,7 +10,6 @@ export default function Hydrate({ children }: { children: ReactNode }) {
   useEffect(() => {
     setIsHydrated(true);
   }, []);
-
   return (
     <>
       {!isHydreated ? (

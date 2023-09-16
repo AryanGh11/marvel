@@ -4,6 +4,7 @@ import { PrismaAdapter } from "@auth/prisma-adapter";
 import { prisma } from "@/util/prisma";
 import { custom } from "openid-client";
 
+const baseUrl = process.env.NEXTAUTH_URL;
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma) as any,
   secret: process.env.NEXTAUTH_SECRET,
@@ -15,6 +16,9 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
+    async redirect() {
+      return baseUrl + "/";
+    },
     async session({ session, token, user }) {
       session.user = user;
       return session;

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import fetchData from "@/util/fetchData";
+import fetchData from "@/api/fetchData";
 import PrimaryButton from "../buttons/PrimaryButton";
 import SecondaryButton from "../buttons/SecondaryButton";
 import { UserType } from "@/types/UserType";
@@ -40,19 +40,17 @@ export default function LoginButtons({ email, password }: ThisType) {
       error.setMessage("Email or password isn't correct");
     } else {
       //Set current user to storage
-      userSession.setEmail(currentUser[0].email);
       userSession.setId(currentUser[0].id);
-      userSession.setName(currentUser[0].name);
-      userSession.setImage(currentUser[0].image);
-      userSession.setPassword(currentUser[0].password);
       userSession.toggleLogin();
+
       //Go to homepage after 2s
       setTimeout(() => {
         router.push("/");
       }, 2000);
+
       //Create success message
       message.setMessage(
-        `Welcome Back ${userSession.name != null ? userSession.name : ""}`
+        `Welcome Back ${currentUser[0].name != null ? currentUser[0].name : ""}`
       );
     }
   };
@@ -63,7 +61,7 @@ export default function LoginButtons({ email, password }: ThisType) {
         <PrimaryButton
           text="Log in"
           disabled={error.message != null && true}
-          timer={2}
+          timer={3}
         />
       </div>
       <h1 className="text-sm">Or log in with</h1>

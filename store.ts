@@ -89,14 +89,12 @@ type UserSession = {
   id: string | null;
   name: string | null;
   email: string | null;
-  password: string | null;
   image: string | null;
   isLogin: boolean;
   setId: (val: string) => void;
   setName: (val: string) => void;
   setEmail: (val: string) => void;
   setImage: (val: string) => void;
-  setPassword: (val: string) => void;
   toggleLogin: () => void;
   clear: () => void;
 };
@@ -108,13 +106,11 @@ export const useUserSession = create<UserSession>()(
       name: null,
       email: null,
       image: null,
-      password: null,
       isLogin: false,
       setId: (val) => set((state) => ({ id: val })),
       setName: (val) => set((state) => ({ name: val })),
       setEmail: (val) => set((state) => ({ email: val })),
       setImage: (val) => set((state) => ({ image: val })),
-      setPassword: (val) => set((state) => ({ password: val })),
       toggleLogin: () => set((state) => ({ isLogin: !state.isLogin })),
       clear: () =>
         set((state) => ({
@@ -122,26 +118,10 @@ export const useUserSession = create<UserSession>()(
           email: null,
           id: null,
           image: null,
-          password: null,
           isLogin: false,
         })),
     }),
     { name: "user-session" }
-  )
-);
-
-type BackgroundImages = {
-  data: [] | null;
-  setData: (val: []) => void;
-};
-
-export const useBackgroundImages = create<BackgroundImages>()(
-  persist(
-    (set) => ({
-      data: null,
-      setData: (val) => set((state) => ({ data: val })),
-    }),
-    { name: "background-images" }
   )
 );
 

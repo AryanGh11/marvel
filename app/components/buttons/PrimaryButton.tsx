@@ -12,7 +12,7 @@ export default function PrimaryButton({ text, disabled, timer }: ButtonType) {
     setLoading(true);
   };
 
-  if (timer) {
+  if (timer && !disabled) {
     setTimeout(() => {
       setLoading(false);
     }, timer * 1000);

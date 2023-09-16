@@ -1,14 +1,7 @@
 export type InputType = {
   placeholder: string;
-  value?: string;
-  setValue?: (val: string) => void;
+  value?: string | number;
+  setValue?: ((val: string) => void) | ((val: number) => void) | any;
   id: string;
-  type:
-    | "button"
-    | "text"
-    | "email"
-    | "password"
-    | "number"
-    | "search"
-    | "submit";
+  type: string;
 };

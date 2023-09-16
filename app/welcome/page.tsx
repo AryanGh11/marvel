@@ -1,46 +1,26 @@
 "use client";
 
-import { useBackgroundImages, useUserSession } from "@/store";
+import { useUserSession } from "@/store";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import BackgroundChanger from "../components/BackgroundChanger";
-import fetchData from "@/util/fetchData";
+import fetchData from "@/api/fetchData";
 import Logo from "../components/Logo";
 import PrimaryButton from "../components/buttons/PrimaryButton";
 import FirstSection from "../components/welcome/FirstSection";
 import LastSection from "../components/welcome/LastSection";
-import SecondaryButton from "../components/buttons/SecondaryButton";
 import Link from "next/link";
+import SecondaryButton from "../components/buttons/SecondaryButton";
 
 export default function Welcome() {
-  useEffect(() => {
-    if (backgroundImages.data !== null) {
-      existingData();
-    }
-  }, []);
+  //Get all backgrounds from database
+  const [data, setData] = useState([]);
+  fetchData("/get-backgrounds", setData);
 
   //Check if user logged in
   const router = useRouter();
   const userSession = useUserSession();
   if (userSession.isLogin) router.push("/");
-
-  //Fetch backgrounds from server
-  const [data, setData] = useState([]);
-  const path = "/get-backgrounds";
-
-  //Check if data existing in storage
-  const backgroundImages = useBackgroundImages();
-  const existingData = () => {
-    if (backgroundImages.data !== null) {
-      setData(backgroundImages.data!);
-    }
-  };
-
-  //Check if data not existing in storage
-  if (backgroundImages.data == null) {
-    fetchData(path, setData, {});
-    console.log(data);
-  }
 
   //Sections of welcome page
   const [section, setSection] = useState(1);
