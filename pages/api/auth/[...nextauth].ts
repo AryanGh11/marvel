@@ -1,12 +1,10 @@
 import NextAuth, { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
-import { PrismaAdapter } from "@auth/prisma-adapter";
-import { prisma } from "@/util/prisma";
 import { custom } from "openid-client";
+import { connectToDatabase } from "./model/User";
 
 const baseUrl = process.env.NEXTAUTH_URL;
 export const authOptions: NextAuthOptions = {
-  adapter: PrismaAdapter(prisma) as any,
   secret: process.env.NEXTAUTH_SECRET,
   providers: [
     GoogleProvider({
@@ -16,12 +14,24 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   callbacks: {
-    async redirect() {
-      return baseUrl + "/";
+    async signIn({ user, account, profile }) {
+      const db = await connectToDatabase();
+      if (account!.provider === "google" && profile!.email) {
+        const User = db.model("User");
+        const existingUser = await User.findOne({ email: profile!.email });
+        if (existingUser) {
+          return true;
+        }
+        await User.create({ name: profile!.name, email: profile!.email });
+      }
+      return true;
     },
     async session({ session, token, user }) {
       session.user = user;
       return session;
+    },
+    async redirect() {
+      return baseUrl + "/";
     },
   },
 };
