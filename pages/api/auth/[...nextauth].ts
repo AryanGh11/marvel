@@ -25,7 +25,7 @@ export const authOptions: NextAuthOptions = {
         await User.create({
           name: user.name,
           email: user.email,
-          image: user.image,
+          avatar: user.image,
         });
       }
       return true;
