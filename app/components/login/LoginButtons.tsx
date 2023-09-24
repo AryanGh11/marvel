@@ -27,7 +27,7 @@ export default function LoginButtons({ email, password }: ThisType) {
 
   //Get all users from database
   const [users, setUsers] = useState([]);
-  fetchData("/get-user", setUsers);
+  fetchData("/user", setUsers);
 
   //Check if user existing in database
   const handleLogin = () => {
@@ -40,7 +40,7 @@ export default function LoginButtons({ email, password }: ThisType) {
       error.setMessage("Email or password isn't correct");
     } else {
       //Set current user to storage
-      userSession.setId(currentUser[0].id);
+      userSession.setId(currentUser[0]._id);
       userSession.toggleLogin();
 
       //Go to homepage after 2s

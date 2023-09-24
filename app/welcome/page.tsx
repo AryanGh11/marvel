@@ -15,7 +15,7 @@ import SecondaryButton from "../components/buttons/SecondaryButton";
 export default function Welcome() {
   //Get all backgrounds from database
   const [data, setData] = useState([]);
-  fetchData("/get-backgrounds", setData);
+  fetchData("/background", setData);
 
   //Check if user logged in
   const router = useRouter();

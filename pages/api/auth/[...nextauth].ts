@@ -16,13 +16,17 @@ export const authOptions: NextAuthOptions = {
   callbacks: {
     async signIn({ user, account, profile }) {
       const db = await connectToDatabase();
-      if (account!.provider === "google" && profile!.email) {
+      if (account!.provider === "google" && user.email) {
         const User = db.model("User");
-        const existingUser = await User.findOne({ email: profile!.email });
+        const existingUser = await User.findOne({ email: user.email });
         if (existingUser) {
           return true;
         }
-        await User.create({ name: profile!.name, email: profile!.email });
+        await User.create({
+          name: user.name,
+          email: user.email,
+          image: user.image,
+        });
       }
       return true;
     },

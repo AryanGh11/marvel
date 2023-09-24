@@ -18,7 +18,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const session = await getServerSession(authOptions);
+  const session = await getServerSession();
   return (
     <html lang="en">
       <Hydrate>
@@ -26,7 +26,10 @@ export default async function RootLayout({
         {children}
         <Error />
         <Message />
-        <GoogleLogin user={session?.user} expires={session?.expires as string} />
+        <GoogleLogin
+          user={session?.user}
+          expires={session?.expires as string}
+        />
       </Hydrate>
     </html>
   );

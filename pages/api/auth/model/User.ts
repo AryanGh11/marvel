@@ -1,13 +1,15 @@
 const mongoose = require("mongoose");
 
+//User schema
 export const userSchema = new mongoose.Schema({
   name: { type: String, default: "User" },
   username: { type: String, unique: true },
+  image: { type: String },
   email: { type: String, unique: true, require: true },
   password: { type: String },
 });
 
-// اتصال به پایگاه داده
+// Connect to MongoDB
 export const connectToDatabase = async () => {
   if (mongoose.connections[0].readyState) {
     return mongoose;

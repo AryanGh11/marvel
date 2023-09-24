@@ -68,7 +68,7 @@ export default function SignupButtons({
 
   //Get all users from database
   const [users, setUsers] = useState([]);
-  fetchData("/get-user", setUsers);
+  fetchData("/user", setUsers);
 
   //Handle disable button
   const handleDisable = () => {

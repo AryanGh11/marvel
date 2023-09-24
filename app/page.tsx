@@ -14,7 +14,7 @@ export default function Home() {
 
   //Get all users from database
   const [users, setUsers] = useState([]);
-  fetchData("/get-user", setUsers);
+  fetchData("/user", setUsers);
 
   useEffect(() => {
     if (userSession.email != null) {
@@ -24,7 +24,7 @@ export default function Home() {
       if (currentUser.length != 0) {
         userSession.setName(currentUser[0].name);
         userSession.setImage(currentUser[0].image);
-        userSession.setId(currentUser[0].id);
+        userSession.setId(currentUser[0]._id);
       }
     }
   }, [users, userSession.email]);

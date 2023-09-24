@@ -12,6 +12,9 @@ export default function GoogleLogin({ user }: Session) {
       userSession.setName(user.name!);
       userSession.setEmail(user.email!);
       userSession.setImage(user.image!);
+      if (currentUser.length === 1) {
+        userSession.setId(currentUser[0]._id);
+      }
       if (userSession.isLogin == false) {
         userSession.toggleLogin();
       }
@@ -22,7 +25,7 @@ export default function GoogleLogin({ user }: Session) {
 
   //Get all users from database
   const [users, setUsers] = useState([]);
-  fetchData("/get-user", setUsers);
+  fetchData("/user", setUsers);
 
   //Find current user from database
   const currentUser: UserType[] = users.filter(
@@ -30,9 +33,7 @@ export default function GoogleLogin({ user }: Session) {
   );
 
   //Remove OTP code from storage
-  localStorage.removeItem("code")
+  localStorage.removeItem("code");
 
   return null;
 }
-
-//login and signin work!
