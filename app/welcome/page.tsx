@@ -40,7 +40,7 @@ export default function Welcome() {
         )}
         {section == 2 && (
           <>
-            <LastSection />
+            <LastSection setSection={setSection} />
             <div className="flex flex-col justify-center items-center w-full gap-4">
               <Link className="w-full" href={"/login"}>
                 <PrimaryButton text="Log in" />

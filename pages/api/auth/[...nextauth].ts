@@ -25,7 +25,11 @@ export const authOptions: NextAuthOptions = {
         await User.create({
           name: user.name,
           email: user.email,
-          avatar: user.image,
+          avatar: user.image ? user.image : "",
+          username: `user${
+            Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000
+          }`,
+          password: Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000,
         });
       }
       return true;
