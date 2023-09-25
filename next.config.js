@@ -1,5 +1,6 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+const withPWA = require("next-pwa");
+
+module.exports = withPWA({
   experimental: {
     appDir: true,
   },
@@ -29,20 +30,15 @@ const nextConfig = {
     };
     return config;
   },
-};
 
-const withPWA = require("next-pwa");
-
-module.exports = withPWA({
+  // تنظیمات PWA
   pwa: {
     dest: "public",
     disable: process.env.NODE_ENV === "development",
     register: true,
     scope: "/",
   },
-});
 
-module.exports = {
   async headers() {
     return [
       {
@@ -56,6 +52,4 @@ module.exports = {
       },
     ];
   },
-};
-
-module.exports = nextConfig;
+});
