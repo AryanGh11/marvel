@@ -1,6 +1,15 @@
-const withPWA = require("next-pwa");
+/** @type {import('next').NextConfig} */
+const withPWA = require("next-pwa")({
+  dest: "public",
+  disable: process.env.NODE_ENV === "development",
+  register: true,
+  scope: "/",
+});
 
 module.exports = withPWA({
+  experimental: {
+    appDir: true,
+  },
   typescript: {
     ignoreBuildErrors: true,
   },
@@ -27,15 +36,6 @@ module.exports = withPWA({
     };
     return config;
   },
-
-  pwa: {
-    dest: "public",
-    disable: process.env.NODE_ENV === "development",
-    register: true,
-    scope: "/",
-    exclude: [/\.map$/, /asset-manifest\.json$/],
-  },
-
   async headers() {
     return [
       {
