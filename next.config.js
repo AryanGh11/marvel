@@ -6,7 +6,7 @@ const withPWA = require("next-pwa")({
   scope: "/",
 });
 
-module.exports = withPWA({
+const nextConfig = withPWA({
   experimental: {
     appDir: true,
   },
@@ -50,3 +50,5 @@ module.exports = withPWA({
     ];
   },
 });
+
+module.exports = nextConfig;

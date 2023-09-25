@@ -1,12 +1,13 @@
 import "./globals.css";
+import "@/public/manifest.json";
 import type { Metadata } from "next";
 import Hydrate from "./components/Hydrate";
 import LoadingPage from "./components/LoadingPage";
 import Error from "@/app/components/error/Error";
 import { getServerSession } from "next-auth/next";
-import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import Message from "./components/message/Message";
 import GoogleLogin from "./components/GoogleLogin";
+import NextHead from "next/head";
 
 export const metadata: Metadata = {
   title: "Marvel App",
@@ -21,6 +22,12 @@ export default async function RootLayout({
   const session = await getServerSession();
   return (
     <html lang="en">
+      <NextHead>
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content={metadata.description!} />
+        <link rel="manifest" href="/manifest.json" />
+      </NextHead>
       <Hydrate>
         <LoadingPage timer={2} />
         {children}
