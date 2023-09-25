@@ -8,6 +8,8 @@ import { UserType } from "@/types/UserType";
 import { handleError, handleMessage, useUserSession } from "@/store";
 import { signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
+import TextButton from "../buttons/TextButton";
 
 interface ThisType {
   email: string;
@@ -41,6 +43,9 @@ export default function LoginButtons({ email, password }: ThisType) {
     } else {
       //Set current user to storage
       userSession.setId(currentUser[0]._id);
+      userSession.setName(currentUser[0].name);
+      userSession.setImage(currentUser[0].image);
+      userSession.setEmail(currentUser[0].email);
       userSession.toggleLogin();
 
       //Go to homepage after 2s
@@ -68,6 +73,12 @@ export default function LoginButtons({ email, password }: ThisType) {
       <div className="w-full" onClick={() => signIn()}>
         <SecondaryButton text="Google" icon="google" />
       </div>
+
+      <TextButton
+        title="Don't you have an account?"
+        buttonText="Create account"
+        href="signup"
+      />
     </main>
   );
 }

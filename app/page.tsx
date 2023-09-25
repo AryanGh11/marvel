@@ -5,6 +5,9 @@ import { UserType } from "@/types/UserType";
 import fetchData from "@/pages/api/fetchData";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import Header from "./home/Header";
+import Nav from "./home/Nav";
+import Profile from "./home/Profile";
 
 export default function Home() {
   //Check if user not logged in
@@ -29,9 +32,15 @@ export default function Home() {
     }
   }, [users, userSession.email]);
 
+  //Sections
+  const [section, setSection] = useState("home");
+
   return (
     <main className="w-full text-neutral flex justify-center">
-      <h1 className="text-4xl font-bold">Hi there!</h1>
+      <Header />
+      <Nav section={section} setSection={setSection} />
+
+      {section === "profile" && <Profile />}
     </main>
   );
 }

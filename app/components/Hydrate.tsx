@@ -17,7 +17,7 @@ export default function Hydrate({ children }: { children: ReactNode }) {
           <Logo />
         </body>
       ) : (
-        <body className="flex font-inter justify-center items-center w-full h-screen bg-primary">
+        <body className="flex font-inter justify-center items-center w-full h-screen bg-base-100">
           {children}
         </body>
       )}

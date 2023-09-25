@@ -11,6 +11,7 @@ import { useRouter } from "next/navigation";
 import postData from "@/pages/api/postData";
 import sendEmail from "@/pages/api/sendEmail";
 import createOneTimeCode from "@/util/createOneTimeCode";
+import TextButton from "../buttons/TextButton";
 
 interface ThisType {
   name: string;
@@ -50,7 +51,7 @@ export default function SignupButtons({
   const [fetching, setFetching] = useState(Function);
   useEffect(() => {
     if (run) {
-      setFetching(() => postData("/post-user", setRes, options));
+      setFetching(() => postData("/user", setRes, options));
       setRun(false);
     }
     fetching;
@@ -149,6 +150,12 @@ export default function SignupButtons({
       <div className="w-full" onClick={() => signIn()}>
         <SecondaryButton text="Google" icon="google" />
       </div>
+
+      <TextButton
+        title="Do you have an account?"
+        buttonText="Login"
+        href="login"
+      />
     </main>
   );
 }
