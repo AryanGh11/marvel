@@ -1,13 +1,14 @@
 "use client";
 
+import fetchData from "@/pages/api/fetchData";
 import { useUserSession } from "@/store";
 import logOut from "@/util/logOut";
-import { signOut } from "next-auth/react";
 import Image from "next/image";
 
 export default function Profile() {
   //Import user session
   const user = useUserSession();
+
   return (
     <div>
       {user.avatar && (
@@ -20,7 +21,6 @@ export default function Profile() {
         />
       )}
       <h1 className="text-xl">{user.name}</h1>
-
       <button onClick={() => logOut(user)}>Log Out</button>
     </div>
   );

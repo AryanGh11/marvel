@@ -5,6 +5,8 @@ import { UserType } from "@/types/UserType";
 import fetchData from "@/pages/api/fetchData";
 import { Session } from "next-auth";
 import { useEffect, useState } from "react";
+import { signOut } from "next-auth/react";
+import logOut from "@/util/logOut";
 
 export default function GoogleLogin({ user }: Session) {
   useEffect(() => {
@@ -12,7 +14,7 @@ export default function GoogleLogin({ user }: Session) {
       userSession.setName(user.name!);
       userSession.setEmail(user.email!);
       userSession.setAvatar(user.image!);
-      if (currentUser.length === 1) {
+      if (currentUser.length != 0) {
         userSession.setId(currentUser[0]._id);
       }
       if (userSession.isLogin == false) {
