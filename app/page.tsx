@@ -5,9 +5,9 @@ import { UserType } from "@/types/UserType";
 import fetchData from "@/pages/api/fetchData";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import Header from "./home/Header";
-import Nav from "./home/Nav";
-import Profile from "./home/Profile";
+import Header from "./components/home/Header";
+import Nav from "./components/home/Nav";
+import Profile from "./components/home/Profile";
 
 export default function Home() {
   //Check if user not logged in
