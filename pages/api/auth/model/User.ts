@@ -3,10 +3,17 @@ const mongoose = require("mongoose");
 //User schema
 export const userSchema = new mongoose.Schema({
   name: { type: String, default: "User" },
-  username: { type: String, unique: true },
-  image: { type: String },
+  username: {
+    type: String,
+    unique: true,
+    default: `user${Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000}`,
+  },
+  avatar: { type: String, default: "" },
   email: { type: String, unique: true, require: true },
-  password: { type: String },
+  password: {
+    type: String,
+    default: Math.floor(Math.random() * (999999 - 100000 + 1)) + 100000,
+  },
 });
 
 // Connect to MongoDB

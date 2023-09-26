@@ -8,7 +8,7 @@ type SearchParams = {
   description: string | null;
   regularPrice: number | null;
   finalPrice: number;
-  image: string | null;
+  avatar: string | null;
   tag: string | null;
   quantity: number | 0;
   category: string;

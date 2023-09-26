@@ -11,7 +11,7 @@ export default function GoogleLogin({ user }: Session) {
     if (user != undefined) {
       userSession.setName(user.name!);
       userSession.setEmail(user.email!);
-      userSession.setImage(user.image!);
+      userSession.setAvatar(user.image!);
       if (currentUser.length === 1) {
         userSession.setId(currentUser[0]._id);
       }

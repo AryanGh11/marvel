@@ -10,7 +10,7 @@ export default function Profile() {
   const user = useUserSession();
   return (
     <div>
-      <Image src={user.image!} alt={user.name!} />
+      <Image src={user.avatar!} alt={user.name!} />
       <h1 className="text-xl">{user.name}</h1>
 
       <button onClick={() => logOut(user)}>Log Out</button>

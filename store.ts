@@ -89,12 +89,12 @@ type UserSession = {
   id: string | null;
   name: string | null;
   email: string | null;
-  image: string | null;
+  avatar: string | null;
   isLogin: boolean;
   setId: (val: string) => void;
   setName: (val: string) => void;
   setEmail: (val: string) => void;
-  setImage: (val: string) => void;
+  setAvatar: (val: string) => void;
   toggleLogin: () => void;
   clear: () => void;
 };
@@ -105,19 +105,19 @@ export const useUserSession = create<UserSession>()(
       id: null,
       name: null,
       email: null,
-      image: null,
+      avatar: null,
       isLogin: false,
       setId: (val) => set((state) => ({ id: val })),
       setName: (val) => set((state) => ({ name: val })),
       setEmail: (val) => set((state) => ({ email: val })),
-      setImage: (val) => set((state) => ({ image: val })),
+      setAvatar: (val) => set((state) => ({ avatar: val })),
       toggleLogin: () => set((state) => ({ isLogin: !state.isLogin })),
       clear: () =>
         set((state) => ({
           name: null,
           email: null,
           id: null,
-          image: null,
+          avatar: null,
           isLogin: false,
         })),
     }),

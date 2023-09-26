@@ -44,7 +44,7 @@ export default function LoginButtons({ email, password }: ThisType) {
       //Set current user to storage
       userSession.setId(currentUser[0]._id);
       userSession.setName(currentUser[0].name);
-      userSession.setImage(currentUser[0].image);
+      userSession.setAvatar(currentUser[0].avatar);
       userSession.setEmail(currentUser[0].email);
       userSession.toggleLogin();
 
