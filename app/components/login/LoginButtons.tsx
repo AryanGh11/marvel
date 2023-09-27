@@ -49,9 +49,7 @@ export default function LoginButtons({ email, password }: ThisType) {
       userSession.setPhone(currentUser[0].phone_number);
       userSession.setAvatar(currentUser[0].avatar);
       userSession.setEmail(currentUser[0].email);
-      if (userSession.isLogin == false) {
-        userSession.toggleLogin();
-      }
+      userSession.toggleLogin(true);
 
       //Go to homepage after 2s
       setTimeout(() => {
@@ -65,14 +63,22 @@ export default function LoginButtons({ email, password }: ThisType) {
     }
   };
 
+  //Handle disable button
+  const handleDisable = () => {
+    if (error.message != null) {
+      return true;
+    }
+    if (email === "" || password === "") {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   return (
     <main className="flex flex-col items-center gap-4 w-full">
       <div className="w-full" onClick={handleLogin}>
-        <PrimaryButton
-          text="Log in"
-          disabled={error.message != null && true}
-          timer={3}
-        />
+        <PrimaryButton text="Log in" disabled={handleDisable()} timer={3} />
       </div>
       <h1 className="text-sm">Or log in with</h1>
       <div className="w-full" onClick={() => signIn()}>

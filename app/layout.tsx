@@ -7,6 +7,7 @@ import Error from "@/app/components/error/Error";
 import { getServerSession } from "next-auth/next";
 import Message from "./components/message/Message";
 import Nav from "./components/Nav";
+import GoogleLogin from "./components/GoogleLogin";
 
 export const metadata: Metadata = {
   title: "Marvel App",
@@ -25,6 +26,10 @@ export default async function RootLayout({
         <link rel="manifest" href="/manifest.json" />
       </head>
       <Hydrate>
+        <GoogleLogin
+          user={session?.user}
+          expires={session?.expires as string}
+        />
         <LoadingPage timer={2} />
 
         {children}
@@ -32,10 +37,6 @@ export default async function RootLayout({
 
         <Error />
         <Message />
-        {/* <GoogleLogin
-          user={session?.user}
-          expires={session?.expires as string}
-        /> */}
       </Hydrate>
     </html>
   );

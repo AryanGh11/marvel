@@ -101,7 +101,7 @@ type UserSession = {
   setPhone: (val: string) => void;
   setEmail: (val: string) => void;
   setAvatar: (val: string) => void;
-  toggleLogin: () => void;
+  toggleLogin: (val: boolean) => void;
   clear: () => void;
 };
 
@@ -123,7 +123,7 @@ export const useUserSession = create<UserSession>()(
       setPhone: (val) => set((state) => ({ phone_number: val })),
       setEmail: (val) => set((state) => ({ email: val })),
       setAvatar: (val) => set((state) => ({ avatar: val })),
-      toggleLogin: () => set((state) => ({ isLogin: !state.isLogin })),
+      toggleLogin: (val) => set((state) => ({ isLogin: val })),
       clear: () =>
         set((state) => ({
           name: null,

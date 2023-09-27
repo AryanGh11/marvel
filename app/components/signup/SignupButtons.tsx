@@ -117,7 +117,7 @@ export default function SignupButtons({
     if (currentUser.length === 0) {
       //Set current user to storage
       userSession.setEmail(email);
-      userSession.toggleLogin();
+      userSession.toggleLogin(true);
 
       // Go to homepage after 2s
       setTimeout(() => {

@@ -27,7 +27,7 @@ export default function Signup() {
   const [section, setSection] = useState(1);
 
   return (
-    <main className="w-full h-screen px-6 pt-28 pb-10 bg-base-100 flex flex-col items-center justify-between text-neutral z-10">
+    <main className="w-full h-screen px-6 pt-28 pb-10 bg-base-100 flex flex-col items-center justify-between text-neutral fixed z-10">
       <SignupHeader />
       <SignupInputs
         name={name}
