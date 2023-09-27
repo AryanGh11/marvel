@@ -2,6 +2,7 @@ import NextAuth, { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import { custom } from "openid-client";
 import { connectToDatabase } from "./model/User";
+import randomAvatar from "@/util/randomAvatar";
 
 const baseUrl = process.env.NEXTAUTH_URL;
 export const authOptions: NextAuthOptions = {
@@ -25,7 +26,7 @@ export const authOptions: NextAuthOptions = {
         await User.create({
           name: user.name,
           email: user.email,
-          avatar: user.image ? user.image : "",
+          avatar: randomAvatar(),
         });
       }
       return true;

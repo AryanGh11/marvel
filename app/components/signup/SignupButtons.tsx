@@ -108,8 +108,8 @@ export default function SignupButtons({
     sendEmail(email, subject, text);
   };
 
-  //Handle login functions
-  const handleLogin = async () => {
+  //Handle signup functions
+  const handleSignup = async () => {
     const currentUser: UserType[] = users.filter(
       (user: UserType) => user.email === email
     );
@@ -142,7 +142,7 @@ export default function SignupButtons({
         </div>
       )}
       {section == 2 && (
-        <div className="w-full" onClick={handleLogin}>
+        <div className="w-full" onClick={handleSignup}>
           <PrimaryButton text="Sign up" disabled={handleDisable()} timer={3} />
         </div>
       )}

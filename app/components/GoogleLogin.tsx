@@ -13,6 +13,15 @@ export default function GoogleLogin({ user }: Session) {
   //Import user session from storage
   const userSession = useUserSession();
 
+  //Get all users from database
+  const [users, setUsers] = useState([]);
+  fetchData("/user", setUsers);
+
+  //Find current user from database
+  const currentUser: UserType[] = users.filter(
+    (value: UserType) => value.email === userSession.email
+  );
+
   useEffect(() => {
     //Check if user not logged in
     if (user != undefined) {
@@ -36,19 +45,11 @@ export default function GoogleLogin({ user }: Session) {
     userSession.avatar,
     userSession.phone_number,
     userSession.bio,
+    currentUser.length === 1 && currentUser[0],
   ]);
 
   //Import router from next-navigation
   const router = useRouter();
-
-  //Get all users from database
-  const [users, setUsers] = useState([]);
-  fetchData("/user", setUsers);
-
-  //Find current user from database
-  const currentUser: UserType[] = users.filter(
-    (value: UserType) => value.email === user?.email
-  );
 
   console.log(currentUser);
   //Remove OTP code from storage

@@ -15,7 +15,7 @@ export const userSchema = new mongoose.Schema({
     default: "Hi there, I'm using the Marvel app!",
   },
 
-  avatar: { type: String, default: randomAvatar },
+  avatar: { type: String, default: randomAvatar() },
   email: { type: String, unique: true, require: true },
   password: {
     type: String,
