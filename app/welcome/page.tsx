@@ -26,7 +26,7 @@ export default function Welcome() {
   const [section, setSection] = useState(1);
 
   return (
-    <main className="w-full h-screen bg-base-100 overflow-hidden text-neutral">
+    <main className="w-full h-screen bg-base-100 overflow-hidden text-neutral z-10">
       <div className="w-full h-screen flex flex-col justify-between items-center absolute top-0 left-0 z-[2] pt-48 px-6 pb-10">
         <Logo />
 

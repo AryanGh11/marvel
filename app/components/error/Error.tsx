@@ -13,7 +13,7 @@ export default function Error() {
   }, 5000);
 
   return (
-    <div className="absolute w-full flex px-6 top-6">
+    <div className="absolute w-full flex px-6 top-6 z-20">
       <AnimatePresence>
         {error.message != null && (
           <motion.div

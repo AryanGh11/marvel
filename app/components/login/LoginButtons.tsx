@@ -44,9 +44,14 @@ export default function LoginButtons({ email, password }: ThisType) {
       //Set current user to storage
       userSession.setId(currentUser[0]._id);
       userSession.setName(currentUser[0].name);
+      userSession.setUsername(currentUser[0].username);
+      userSession.setBio(currentUser[0].bio);
+      userSession.setPhone(currentUser[0].phone_number);
       userSession.setAvatar(currentUser[0].avatar);
       userSession.setEmail(currentUser[0].email);
-      userSession.toggleLogin();
+      if (userSession.isLogin == false) {
+        userSession.toggleLogin();
+      }
 
       //Go to homepage after 2s
       setTimeout(() => {

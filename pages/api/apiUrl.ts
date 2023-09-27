@@ -1,4 +1,4 @@
 const lh = "http://localhost:4000";
-const hs = "http://mahdirafiei.com";
+const hs = "https://mahdirafiei.com";
 
-export const apiUrl = lh;
+export const apiUrl = hs;

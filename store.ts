@@ -88,11 +88,17 @@ export const useThemeStore = create<ThemeState>()(
 type UserSession = {
   id: string | null;
   name: string | null;
+  username: string | null;
+  bio: string | null;
+  phone_number: string | null;
   email: string | null;
   avatar: string | null;
   isLogin: boolean;
   setId: (val: string) => void;
   setName: (val: string) => void;
+  setUsername: (val: string) => void;
+  setBio: (val: string) => void;
+  setPhone: (val: string) => void;
   setEmail: (val: string) => void;
   setAvatar: (val: string) => void;
   toggleLogin: () => void;
@@ -104,17 +110,26 @@ export const useUserSession = create<UserSession>()(
     (set) => ({
       id: null,
       name: null,
+      username: null,
+      bio: null,
+      phone_number: null,
       email: null,
       avatar: null,
       isLogin: false,
       setId: (val) => set((state) => ({ id: val })),
       setName: (val) => set((state) => ({ name: val })),
+      setUsername: (val) => set((state) => ({ username: val })),
+      setBio: (val) => set((state) => ({ bio: val })),
+      setPhone: (val) => set((state) => ({ phone_number: val })),
       setEmail: (val) => set((state) => ({ email: val })),
       setAvatar: (val) => set((state) => ({ avatar: val })),
       toggleLogin: () => set((state) => ({ isLogin: !state.isLogin })),
       clear: () =>
         set((state) => ({
           name: null,
+          username: null,
+          bio: null,
+          phone_number: null,
           email: null,
           id: null,
           avatar: null,

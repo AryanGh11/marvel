@@ -16,6 +16,9 @@ export default function GoogleLogin({ user }: Session) {
       userSession.setAvatar(user.image!);
       if (currentUser.length != 0) {
         userSession.setId(currentUser[0]._id);
+        userSession.setUsername(currentUser[0].username);
+        userSession.setBio(currentUser[0].bio);
+        userSession.setPhone(currentUser[0].phone_number);
       }
       if (userSession.isLogin == false) {
         userSession.toggleLogin();

@@ -1,11 +1,10 @@
 "use client";
 
-import fetchData from "@/pages/api/fetchData";
 import { useUserSession } from "@/store";
 import logOut from "@/util/logOut";
 import Image from "next/image";
 
-export default function Profile() {
+export default function Movies() {
   //Import user session
   const user = useUserSession();
 
