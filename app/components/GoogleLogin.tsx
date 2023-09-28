@@ -51,7 +51,6 @@ export default function GoogleLogin({ user }: Session) {
   //Import router from next-navigation
   const router = useRouter();
 
-  console.log(currentUser);
   //Remove OTP code from storage
   localStorage.removeItem("code");
 

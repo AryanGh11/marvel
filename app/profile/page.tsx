@@ -4,20 +4,18 @@ import { useUserSession } from "@/store";
 import ProfileHeader from "../components/profile/ProfileHeader";
 import { signIn, signOut } from "next-auth/react";
 import logOut from "@/util/logOut";
+import { useState } from "react";
+import EditAvatar from "../components/profile/EditAvatar";
 
 export default function Profile() {
-  //Import user session
-  const user = useUserSession();
 
-  function handleError() {
-    console.log("An error occurred in the console!");
-  }
-  window.addEventListener("error", handleError);
+  //Set edit avatar
+  const [editProfile, setEditProfile] = useState(false);
 
   return (
     <div className="w-full">
-      <ProfileHeader />
-      <button onClick={() => logOut(user)}>Log Out</button>
+      <ProfileHeader setEditProfile={setEditProfile} />
+      <EditAvatar editProfile={editProfile} />
     </div>
   );
 }

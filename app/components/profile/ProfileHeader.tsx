@@ -3,9 +3,13 @@
 import Image from "next/image";
 import { useUserSession } from "@/store";
 import Link from "next/link";
-import { FiEdit3 } from "react-icons/fi";
+import { BiSolidCamera } from "react-icons/bi";
 
-export default function ProfileHeader() {
+interface ThisType {
+  setEditProfile: (val: any) => void;
+}
+
+export default function ProfileHeader({ setEditProfile }: ThisType) {
   //Import user session
   const user = useUserSession();
 
@@ -26,11 +30,12 @@ export default function ProfileHeader() {
           <h1 className="text-sm font-light opacity-60">@{user.username}</h1>
         </div>
       </div>
-      <Link href={"/profile/edit-profile"}>
-        <div className="w-11 h-11 bg-primary rounded-full flex justify-center items-center translate-y-[72px]">
-          <FiEdit3 className="w-5 h-5" />
-        </div>
-      </Link>
+      <div
+        onClick={() => setEditProfile((prev: boolean) => !prev)}
+        className="w-11 h-11 bg-primary rounded-full flex justify-center items-center translate-y-[72px]"
+      >
+        <BiSolidCamera className="w-5 h-5" />
+      </div>
     </main>
   );
 }

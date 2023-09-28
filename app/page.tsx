@@ -6,6 +6,10 @@ import fetchData from "@/pages/api/fetchData";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Header from "./components/Header";
+import Image from "next/image";
+import BannersSlider from "./components/BannersSlider";
+import Body from "./components/Body";
+import logOut from "@/util/logOut";
 
 export default function Home() {
   //Check if user not logged in
@@ -30,10 +34,15 @@ export default function Home() {
     }
   }, [users, userSession.email]);
 
+  //Import user session
+  const user = useUserSession();
+
   return (
-    <main className="w-full text-neutral flex justify-center">
+    <main className="w-full text-neutral flex flex-col justify-center pt-20 px-3">
       <Header />
-      <h1>fsdnklf</h1>
+      <Body />
+
+      <button onClick={() => logOut(user)}>Log Out</button>
     </main>
   );
 }
