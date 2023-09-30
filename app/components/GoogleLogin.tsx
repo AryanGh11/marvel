@@ -37,7 +37,7 @@ export default function GoogleLogin({ user }: Session) {
       userSession.setAvatar(currentUser[0].avatar);
     }
   }, [
-    user,
+    users,
     userSession.email,
     userSession.isLogin,
     userSession.name,
@@ -45,7 +45,11 @@ export default function GoogleLogin({ user }: Session) {
     userSession.avatar,
     userSession.phone_number,
     userSession.bio,
-    currentUser.length === 1 && currentUser[0],
+    currentUser.length === 1 && currentUser[0].name,
+    currentUser.length === 1 && currentUser[0].bio,
+    currentUser.length === 1 && currentUser[0].username,
+    currentUser.length === 1 && currentUser[0].phone_number,
+    currentUser.length === 1 && currentUser[0].avatar,
   ]);
 
   //Import router from next-navigation

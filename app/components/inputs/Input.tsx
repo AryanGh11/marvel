@@ -15,7 +15,7 @@ export default function Input({
       type={type}
       value={value}
       id={id}
-      placeholder={"Enter your " + placeholder}
+      placeholder={placeholder}
       onChange={(e) => setValue!(e.target.value)}
     />
   );

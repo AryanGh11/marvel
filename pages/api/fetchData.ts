@@ -19,5 +19,5 @@ export default function fetchData(
         console.error("Error:", error);
       }
     }
-  }, []);
+  }, [setData]);
 }

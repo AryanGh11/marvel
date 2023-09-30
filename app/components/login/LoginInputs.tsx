@@ -19,14 +19,14 @@ export default function LoginInputs({
     <main className="flex flex-col items-center gap-4 w-full">
       <Input
         id="email"
-        placeholder="email"
+        placeholder="Email"
         type="text"
         value={email}
         setValue={setEmail}
       />
       <Input
         id="password"
-        placeholder="password"
+        placeholder="Password"
         type="password"
         value={password}
         setValue={setPassword}

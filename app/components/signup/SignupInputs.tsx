@@ -34,28 +34,28 @@ export default function SignupInputs({
   const values = [
     {
       id: "name",
-      placeholder: "name",
+      placeholder: "Name",
       type: "text",
       value: name,
       setValue: setName,
     },
     {
       id: "username",
-      placeholder: "username",
+      placeholder: "Username",
       type: "text",
       value: username,
       setValue: setAge,
     },
     {
       id: "email",
-      placeholder: "email",
+      placeholder: "Email",
       type: "email",
       value: email,
       setValue: setEmail,
     },
     {
       id: "password",
-      placeholder: "password",
+      placeholder: "Password",
       type: "password",
       value: password,
       setValue: setPassword,
