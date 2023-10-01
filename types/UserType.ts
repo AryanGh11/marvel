@@ -7,4 +7,5 @@ export type UserType = {
   email: string;
   password: string;
   avatar: string;
+  createdAt: string;
 };

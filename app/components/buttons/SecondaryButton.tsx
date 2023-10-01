@@ -27,7 +27,7 @@ export default function SecondaryButton({
     <button
       disabled={disabled}
       onClick={handleOnClick}
-      className="btn w-full text-neutral h-14 bg-transparent border-solid border-primary border-2 hover:border-2 hover:border-primary flex flex-row-reverse items-center"
+      className="btn w-full h-14 bg-transparent border-solid border-primary border-2 hover:border-2 hover:border-primary flex flex-row-reverse items-center text-primary"
     >
       {loading ? (
         <span className="loading loading-spinner loading-md"></span>

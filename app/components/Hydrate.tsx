@@ -2,9 +2,13 @@
 
 import { ReactNode, useEffect, useState } from "react";
 import Logo from "./Logo";
+import { useThemeStore } from "@/store";
 
 export default function Hydrate({ children }: { children: ReactNode }) {
   const [isHydreated, setIsHydrated] = useState(false);
+
+  //Import themes
+  const themeStore = useThemeStore();
 
   //wait untill Nextjs rehydration completes
   useEffect(() => {
@@ -17,7 +21,9 @@ export default function Hydrate({ children }: { children: ReactNode }) {
           <Logo />
         </body>
       ) : (
-        <body className="font-inter bg-base-100">{children}</body>
+        <body className="font-inter bg-base-100" data-theme={themeStore.mode}>
+          {children}
+        </body>
       )}
     </>
   );

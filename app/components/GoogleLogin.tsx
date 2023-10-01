@@ -5,8 +5,6 @@ import { UserType } from "@/types/UserType";
 import fetchData from "@/pages/api/fetchData";
 import { Session } from "next-auth";
 import { useEffect, useState } from "react";
-import { signOut } from "next-auth/react";
-import logOut from "@/util/logOut";
 import { useRouter } from "next/navigation";
 
 export default function GoogleLogin({ user }: Session) {
@@ -35,6 +33,7 @@ export default function GoogleLogin({ user }: Session) {
       userSession.setBio(currentUser[0].bio);
       userSession.setPhone(currentUser[0].phone_number);
       userSession.setAvatar(currentUser[0].avatar);
+      userSession.setCreated(currentUser[0].createdAt);
     }
   }, [
     users,

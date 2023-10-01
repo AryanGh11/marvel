@@ -71,14 +71,14 @@ export const useCartStore = create<CartState>()(
 );
 
 type ThemeState = {
-  mode: "marvel" | "black";
-  toggleMode: (theme: "marvel" | "black") => void;
+  mode: "dark" | "light";
+  toggleMode: (theme: "dark" | "light") => void;
 };
 
 export const useThemeStore = create<ThemeState>()(
   persist(
     (set) => ({
-      mode: "marvel",
+      mode: "dark",
       toggleMode: (theme) => set((state) => ({ mode: theme })),
     }),
     { name: "theme-store" }
@@ -93,6 +93,7 @@ type UserSession = {
   phone_number: string | null;
   email: string | null;
   avatar: string | null;
+  createdAt: string | null;
   isLogin: boolean;
   setId: (val: string) => void;
   setName: (val: string) => void;
@@ -101,6 +102,7 @@ type UserSession = {
   setPhone: (val: string) => void;
   setEmail: (val: string) => void;
   setAvatar: (val: string) => void;
+  setCreated: (val: string) => void;
   toggleLogin: (val: boolean) => void;
   clear: () => void;
 };
@@ -115,6 +117,7 @@ export const useUserSession = create<UserSession>()(
       phone_number: null,
       email: null,
       avatar: null,
+      createdAt: null,
       isLogin: false,
       setId: (val) => set((state) => ({ id: val })),
       setName: (val) => set((state) => ({ name: val })),
@@ -123,6 +126,7 @@ export const useUserSession = create<UserSession>()(
       setPhone: (val) => set((state) => ({ phone_number: val })),
       setEmail: (val) => set((state) => ({ email: val })),
       setAvatar: (val) => set((state) => ({ avatar: val })),
+      setCreated: (val) => set((state) => ({ createdAt: val })),
       toggleLogin: (val) => set((state) => ({ isLogin: val })),
       clear: () =>
         set((state) => ({
@@ -133,6 +137,7 @@ export const useUserSession = create<UserSession>()(
           email: null,
           id: null,
           avatar: null,
+          createdAt: null,
           isLogin: false,
         })),
     }),

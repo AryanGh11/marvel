@@ -57,7 +57,11 @@ export default function EditAvatar({ editProfile }: ThisType) {
           className="w-full fixed bg-base-200 bottom-0 py-10 px-16 z-20 rounded-se-[2.5rem] rounded-ss-[2.5rem] grid grid-cols-2 grid-rows-3 gap-x-10 gap-y-4"
         >
           {avatar.map((a) => (
-            <div onClick={() => setSelAvatar(a.url)} key={a.title}>
+            <div
+              className="w-full flex justify-center items-center"
+              onClick={() => setSelAvatar(a.url)}
+              key={a.title}
+            >
               <Avatar title={a.title} url={a.url} />
             </div>
           ))}

@@ -38,7 +38,7 @@ export default function Home() {
   const user = useUserSession();
 
   return (
-    <main className="w-full text-neutral flex flex-col justify-center pt-20 px-3">
+    <main className="w-full text-neutral flex flex-col justify-center py-24 px-3">
       <Header />
       <Body />
 

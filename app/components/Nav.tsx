@@ -11,7 +11,7 @@ export default function Nav() {
   const path = usePathname();
 
   return (
-    <div className="w-full pb-10 pt-4 px-16 fixed bottom-0 left-0 flex justify-between items-center">
+    <div className="w-full pb-10 pt-4 px-16 fixed bottom-0 left-0 flex justify-between items-center bg-base-100 z-10">
       {/* Home */}
       <Link href={"/"}>
         {path === "/" ? (

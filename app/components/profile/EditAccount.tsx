@@ -34,6 +34,8 @@ export default function EditAccount({
         ? "Phone number"
         : editAccountTitle === "Bio"
         ? "Bio"
+        : editAccountTitle === "Name"
+        ? "Name"
         : ""
     );
     setId(
@@ -43,6 +45,8 @@ export default function EditAccount({
         ? "phone number"
         : section === "Bio"
         ? "bio"
+        : section === "Name"
+        ? "name"
         : ""
     );
   }, [editAccountTitle, section]);
@@ -68,6 +72,10 @@ export default function EditAccount({
       email: user.email,
       bio: value,
     };
+    const nameData = {
+      email: user.email,
+      name: value,
+    };
     const options = {
       method: "POST",
       headers: {
@@ -80,6 +88,8 @@ export default function EditAccount({
           ? phoneData
           : section === "Bio"
           ? bioData
+          : section === "Name"
+          ? nameData
           : null
       ),
     };
