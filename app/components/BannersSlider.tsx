@@ -25,7 +25,7 @@ export default function BannersSlider({ banner, category }: ThisType) {
           showArrows={false}
           showThumbs={false}
           showStatus={false}
-          interval={3000}
+          interval={5000}
           centerMode={true}
         >
           {filteredBanner.map((b) => (
