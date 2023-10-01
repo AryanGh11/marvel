@@ -10,7 +10,7 @@ export default function Profile() {
   const [editProfile, setEditProfile] = useState(false);
 
   return (
-    <div className="w-full">
+    <div className="w-full h-screen">
       <ProfileHeader setEditProfile={setEditProfile} />
       <EditAvatar editProfile={editProfile} />
       <ProfileAccount />
