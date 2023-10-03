@@ -30,7 +30,6 @@ export default async function RootLayout({
           user={session?.user}
           expires={session?.expires as string}
         />
-        <LoadingPage timer={2} />
 
         {children}
         <Nav />

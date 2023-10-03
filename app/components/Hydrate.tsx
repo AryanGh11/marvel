@@ -21,7 +21,10 @@ export default function Hydrate({ children }: { children: ReactNode }) {
           <Logo />
         </body>
       ) : (
-        <body className="font-inter bg-base-100" data-theme={themeStore.mode}>
+        <body
+          className="font-inter bg-base-100 scrollbar scrollbar-none"
+          data-theme={themeStore.mode}
+        >
           {children}
         </body>
       )}

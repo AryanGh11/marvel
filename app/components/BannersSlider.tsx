@@ -35,7 +35,7 @@ export default function BannersSlider({ banner, category }: ThisType) {
               alt={b.title}
               height={1080}
               width={1080}
-              className="w-full aspect-video object-cover rounded-lg p-1"
+              className="w-full aspect-video object-cover rounded-2xl p-1"
               priority
             />
           ))}

@@ -3,27 +3,7 @@ type Params = {
 };
 
 type SearchParams = {
-  id: string;
   name: string;
-  description: string | null;
-  regularPrice: number | null;
-  finalPrice: number;
-  avatar: string | null;
-  tag: string | null;
-  quantity: number | 0;
-  category: string;
-
-  //banners
-  title: string;
-
-  //alerts
-  text: string;
-
-  //signup and login
-  email: string;
-  password: string;
-  username: string;
-  isLogin: string;
 };
 
 export type SearchParamTypes = {

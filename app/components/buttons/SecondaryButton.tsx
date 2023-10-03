@@ -30,7 +30,7 @@ export default function SecondaryButton({
       className="btn w-full h-14 bg-transparent border-solid border-primary border-2 hover:border-2 hover:border-primary flex flex-row-reverse items-center text-primary"
     >
       {loading ? (
-        <span className="loading loading-spinner loading-md"></span>
+        <span className="loading loading-ring loading-md"></span>
       ) : (
         [text, icon === "google" ? <FcGoogle className="w-6 h-6" /> : null]
       )}

@@ -27,7 +27,7 @@ export default function postData(
     try {
       const response = await fetch(url, options);
       const jsonData = await response.json();
-      setData != undefined && setData!(jsonData.data);
+      setData!(jsonData.data);
     } catch (error) {
       console.error("Error:", error);
     }
