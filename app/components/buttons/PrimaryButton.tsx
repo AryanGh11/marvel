@@ -21,7 +21,7 @@ export default function PrimaryButton({ text, disabled, timer }: ButtonType) {
     <button
       onClick={handleOnClick}
       disabled={loading ? true : disabled}
-      className="btn w-full btn-primary text-base-100"
+      className="btn w-full btn-primary text-base-100 rounded-xl"
     >
       {loading ? (
         <span className="loading loading-ring loading-md"></span>

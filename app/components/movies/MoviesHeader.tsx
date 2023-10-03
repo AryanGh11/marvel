@@ -17,12 +17,14 @@ export default function MoviesHeader({ value, setValue }: ThisType) {
   //Set new movie suggest
   const [showSuggest, setShowSuggest] = useState<boolean>(false);
 
-  //Value of new movie
+  //Values of new movie
   const [newMovie, setNewMovie] = useState("");
+  const [newMovietrailer, setNewMovietrailer] = useState("");
 
   //Post new movie
   const data = {
     Title: newMovie,
+    Trailer: newMovietrailer,
   };
 
   //Import success message
@@ -83,6 +85,13 @@ export default function MoviesHeader({ value, setValue }: ThisType) {
               type="text"
               value={newMovie}
               setValue={setNewMovie}
+            />
+            <Input
+              id="search"
+              placeholder="Does it have a trailer?"
+              type="text"
+              value={newMovietrailer}
+              setValue={setNewMovietrailer}
             />
             <div className="w-full" onClick={handleSubmit}>
               <PrimaryButton

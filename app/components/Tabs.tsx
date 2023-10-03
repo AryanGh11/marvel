@@ -1,38 +1,55 @@
 "use client";
 
-import {
-  Tabs,
-  TabsHeader,
-  TabsBody,
-  Tab,
-  TabPanel,
-} from "@material-tailwind/react";
-
 interface ThisType {
-  tabs: {
-    label: string;
-    value: string;
-    desc: string | undefined;
-  }[];
+  section: string;
+  setSection: (val: string) => void;
 }
 
-export function MainTabs({ tabs }: ThisType) {
+export function MainTabs({ section, setSection }: ThisType) {
   return (
-    <Tabs className="w-full" value="cast">
-      <TabsHeader>
-        {tabs!.map(({ label, value }) => (
-          <Tab key={value} value={value}>
-            {label}
-          </Tab>
-        ))}
-      </TabsHeader>
-      <TabsBody className="text-sm pt-3">
-        {tabs!.map(({ value, desc }) => (
-          <TabPanel key={value} value={value}>
-            {desc}
-          </TabPanel>
-        ))}
-      </TabsBody>
-    </Tabs>
+    <div className="w-full">
+      <ul className="flex w-full justify-start gap-6 items-center text-neutral font-semibold">
+        <li
+          onClick={() => setSection("cast")}
+          className={`${
+            section === "cast"
+              ? "opacity-100 bg-base-200 px-4 py-1 rounded-lg"
+              : "opacity-40 py-1"
+          }`}
+        >
+          Cast
+        </li>
+        <li
+          onClick={() => setSection("story")}
+          className={`${
+            section === "story"
+              ? "opacity-100 bg-base-200 px-4 py-1 rounded-lg"
+              : "opacity-40 py-1"
+          }`}
+        >
+          Story
+        </li>
+        <li
+          onClick={() => setSection("about")}
+          className={`${
+            section === "about"
+              ? "opacity-100 bg-base-200 px-4 py-1 rounded-lg"
+              : "opacity-40 py-1"
+          }`}
+        >
+          About
+        </li>
+        <li
+          onClick={() => setSection("download")}
+          className={`${
+            section === "download"
+              ? "opacity-100 bg-base-200 px-4 py-1 rounded-lg"
+              : "opacity-40 py-1"
+          }`}
+        >
+          Download
+        </li>
+      </ul>
+    </div>
   );
 }

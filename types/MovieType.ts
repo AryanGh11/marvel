@@ -12,4 +12,5 @@ export type MovieType = {
   imdb_rating: string;
   imdb_votes: string;
   imdb_id: string;
+  trailer?: string;
 };
