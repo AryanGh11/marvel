@@ -111,13 +111,13 @@ export default function EditAccount({
           <div className="w-full bg-base-200 pt-6 px-6 pb-4 flex justify-between items-center">
             <div className="flex justify-start items-center gap-4">
               <div onClick={() => setEditAccount(false)}>
-                <IoIosArrowForward className="w-6 h-6 rotate-180" />
+                <IoIosArrowForward className="w-6 h-6 rotate-180 cursor-pointer" />
               </div>
               <h1 className="text-lg font-bold">{editAccountTitle}</h1>
             </div>
             {value != "" && (
               <div onClick={handleUpdate}>
-                <MdOutlineDone className="w-6 h-6" />
+                <MdOutlineDone className="w-6 h-6 cursor-pointer" />
               </div>
             )}
           </div>

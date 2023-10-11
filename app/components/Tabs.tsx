@@ -11,7 +11,7 @@ export function MainTabs({ section, setSection }: ThisType) {
       <ul className="flex w-full justify-start gap-6 items-center text-neutral font-semibold">
         <li
           onClick={() => setSection("cast")}
-          className={`${
+          className={`cursor-pointer ${
             section === "cast"
               ? "opacity-100 bg-base-200 px-4 py-1 rounded-lg"
               : "opacity-40 py-1"
@@ -21,7 +21,7 @@ export function MainTabs({ section, setSection }: ThisType) {
         </li>
         <li
           onClick={() => setSection("story")}
-          className={`${
+          className={`cursor-pointer ${
             section === "story"
               ? "opacity-100 bg-base-200 px-4 py-1 rounded-lg"
               : "opacity-40 py-1"
@@ -31,7 +31,7 @@ export function MainTabs({ section, setSection }: ThisType) {
         </li>
         <li
           onClick={() => setSection("about")}
-          className={`${
+          className={`cursor-pointer ${
             section === "about"
               ? "opacity-100 bg-base-200 px-4 py-1 rounded-lg"
               : "opacity-40 py-1"
@@ -41,7 +41,7 @@ export function MainTabs({ section, setSection }: ThisType) {
         </li>
         <li
           onClick={() => setSection("download")}
-          className={`${
+          className={`cursor-pointer ${
             section === "download"
               ? "opacity-100 bg-base-200 px-4 py-1 rounded-lg"
               : "opacity-40 py-1"

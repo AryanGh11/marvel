@@ -51,7 +51,7 @@ export default function MoviesHeader({ value, setValue }: ThisType) {
   };
 
   return (
-    <div className="flex">
+    <div className="flex fixed w-full bg-base-100 left-0 top-0 px-6 pb-4 pt-10">
       <Input
         id="search"
         placeholder="Search movies..."

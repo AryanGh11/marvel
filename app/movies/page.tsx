@@ -24,7 +24,7 @@ export default function Movies() {
   }, [movies, value]);
 
   return (
-    <div className="flex flex-col px-6 pb-24 gap-4 pt-10 text-neutral min-h-screen">
+    <div className="flex flex-col px-6 pb-24 gap-4 pt-24 text-neutral min-h-screen">
       <MoviesHeader value={value} setValue={setValue} />
       {filteredMovies.length === 0 && <NotFound />}
       {filteredMovies.length != 0 || movies.length != 0 ? (

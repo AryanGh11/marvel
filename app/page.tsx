@@ -41,8 +41,6 @@ export default function Home() {
     <main className="w-full text-neutral flex flex-col justify-center py-24 px-3">
       <Header />
       <Body />
-
-      <button onClick={() => logOut(user)}>Log Out</button>
     </main>
   );
 }

@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Avatar({ title, url }: AvatarType) {
   return (
-    <div className="btn flex-nowrap border-solid border-[1px] border-primary w-24 h-24 p-2 rounded-full flex justify-center items-center">
+    <div className="btn flex-nowrap border-solid border-[1px] border-primary w-24 h-24 p-2 rounded-full flex justify-center items-center hover:bg-primary">
       <Image
         src={url}
         alt={title}

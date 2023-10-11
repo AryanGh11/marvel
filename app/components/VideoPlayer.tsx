@@ -20,7 +20,7 @@ export default function VideoPlayer({ playing, setPlaying, movie }: ThisType) {
             alt={movie.name}
             width={1500}
             height={1500}
-            className="w-full object-cover aspect-[5/6]"
+            className="w-full object-cover aspect-[5/6] cursor-pointer"
             priority
             onClick={() => setPlaying(true)}
           />
@@ -42,7 +42,7 @@ export default function VideoPlayer({ playing, setPlaying, movie }: ThisType) {
           alt={movie.name}
           width={1500}
           height={1500}
-          className="w-full object-cover aspect-[5/6]"
+          className="w-full object-cover aspect-[5/6] cursor-pointer"
           priority
           onClick={() => setPlaying(true)}
         />

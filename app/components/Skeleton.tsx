@@ -9,7 +9,6 @@ interface ThisType {
 export default function Skeleton({ rounded }: ThisType) {
   return (
     <ContentLoader
-      preserveAspectRatio="16/9"
       height="100%"
       width="100%"
       foregroundColor="#202020"

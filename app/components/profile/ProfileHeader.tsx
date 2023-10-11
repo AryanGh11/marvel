@@ -84,7 +84,7 @@ export default function ProfileHeader({ setEditProfile }: ThisType) {
           </h1>
         </div>
       </div>
-      <div className="flex flex-col justify-center items-end">
+      <div className="flex flex-col justify-center items-end cursor-pointer">
         <Dropdown options={menuOptions} />
         <div
           onClick={() => setEditProfile((prev: boolean) => !prev)}
